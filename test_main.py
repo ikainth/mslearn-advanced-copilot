@@ -13,14 +13,15 @@ def test_countries():
     response = client.get("/countries")
     assert response.status_code == 200
     assert sorted(response.json()) == ["England", "France", "Germany", "Italy", "Peru", "Portugal", "Spain"]
-    def test_cities_spain():
-        response = client.get("/countries/Spain")
-        assert response.status_code == 200
-        assert isinstance(response.json(), list)
-        assert len(response.json()) > 0
+    
+def test_cities_spain():
+    response = client.get("/countries/Spain")
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
+    assert response.json() == ["Seville"]
 
 
-    def test_monthly_average_spain():
-        response = client.get("/countries/Spain/Madrid/January")
-        assert response.status_code == 200
-        assert isinstance(response.json(), dict)
+def test_monthly_average_spain():
+    response = client.get("/countries/Spain/Madrid/January")
+    assert response.status_code == 200
+    assert isinstance(response.json(), dict)
