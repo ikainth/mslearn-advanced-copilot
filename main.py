@@ -25,14 +25,13 @@ def root():
     """
     return RedirectResponse(url='/docs', status_code=301)
 
-    @app.get('/countries/{country}')
-    def cities(country: str):
-        return list(data[country].keys())
+@app.get('/countries/{country}')
+def cities(country: str):
+    return list(data[country].keys())
 
 @app.get('/countries')
 def countries():
     return list(data.keys())
-
 
 @app.get('/countries/{country}/{city}/{month}')
 def monthly_average(country: str, city: str, month: str):
