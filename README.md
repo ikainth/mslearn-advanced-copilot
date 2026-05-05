@@ -6,6 +6,84 @@ Gain more practical experience by using this repository that contains a Python W
 
 [![Powered by Awesome Copilot](https://img.shields.io/badge/Powered_by-Awesome_Copilot-blue?logo=githubcopilot)](https://aka.ms/awesome-github-copilot)
 
+## Quick Start
+
+Use this section to run the project locally in a few minutes.
+
+### 1. Clone and open the repository
+
+```bash
+git clone https://github.com/MicrosoftDocs/mslearn-advanced-copilot.git
+cd mslearn-advanced-copilot
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+On Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the API
+
+```bash
+uvicorn main:app --reload
+```
+
+Open the app in your browser:
+
+- Swagger UI: http://127.0.0.1:8000/docs
+- ReDoc: http://127.0.0.1:8000/redoc
+- Root path (redirects to docs): http://127.0.0.1:8000/
+
+### 5. Run tests
+
+```bash
+pytest -q
+```
+
+You can also run:
+
+```bash
+python test_main.py
+```
+
+### Available routes
+
+- `GET /countries`
+- `GET /countries/{country}`
+- `GET /countries/{country}/{city}/{month}`
+
+Example request:
+
+```bash
+curl http://127.0.0.1:8000/countries/Spain
+```
+
+### Troubleshooting
+
+- If `uvicorn` is not found, make sure your virtual environment is activated.
+- If the server starts but routes fail, verify `weather.json` exists at the repository root.
+- If dependencies fail to install, upgrade pip and retry:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
 ## Requirements
 
 1. Enable your [GitHub Copilot service](https://github.com/github-copilot/signup)
